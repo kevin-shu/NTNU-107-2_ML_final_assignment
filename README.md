@@ -16,7 +16,7 @@ python source/kmeans.py
 
 ## Check if the accuracy of the learned classifier remains unchanged when removing a feature.
 After observing the correlation between each features and target using `Pandas.DataFrame.corr()`, I found out that most of the continuous data have very poor correlation with the target. So first I drop all the continuous features like `BILL_AMT` and `PAY_AMT`, and the result almost remain the same as before.  
-Then I assume that PAY_0~6 should be pretty similar, so I leave only `PAY_0` (which has highest correlation with target among PAY_0~6) to train SVM, and the result is almost the same. So I suggest that we could use only `PAY_0` to train SVM in this case.  
+Then I pick `PAY_0`, which has highest correlation with target among categorical features, to train SVM. And the result is almost the same. So I suggest that we could use only `PAY_0` to train SVM in this case.  
 Here are the result:
 * Linear SVM's accuracy using **all features**: 0.821103
 * Linear SVM's accuracy using only `PAY_0`: 0.819336
