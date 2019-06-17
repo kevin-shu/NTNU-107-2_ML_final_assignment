@@ -63,6 +63,6 @@ clf = svm.LinearSVC(random_state=0)
 scores = cross_val_score(clf,X_1,y,cv=10,scoring='accuracy',error_score=np.nan)
 print("# SVM (linear) mean accuracy (10-fold): %f" % scores.mean())
 
-clf = svm.SVC(gamma='scale')
+clf = svm.SVC(kernel="poly", gamma='scale', C=1000, degree=3)
 scores = cross_val_score(clf,X_1,y,cv=10,scoring='accuracy',error_score=np.nan)
 print("# SVM (polynomial) mean accuracy (10-fold): %f" % scores.mean())
